@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1", "Demo1\Demo1.csproj", "{BE2C3ADE-F15E-4389-A7D3-F5FB97820957}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fasetto-Word", "Fasetto-Word\Fasetto-Word.csproj", "{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BE2C3ADE-F15E-4389-A7D3-F5FB97820957}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2C3ADE-F15E-4389-A7D3-F5FB97820957}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2C3ADE-F15E-4389-A7D3-F5FB97820957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

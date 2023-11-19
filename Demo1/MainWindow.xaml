@@ -19,7 +19,7 @@
         <HierarchicalDataTemplate ItemsSource="{Binding Path =Children}" DataType="{x:Type vm:DirectoryItemViewModel}">
           <StackPanel Orientation="Horizontal">
             <Image Width="20" Margin="3"
-                   Source="{Binding Type, Converter={x:Static local:HeaderToImageConverter.Instance}}" />
+                   Source="{Binding  Type, Converter={x:Static local:HeaderToImageConverter.Instance}}" />
             <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
           </StackPanel>
         </HierarchicalDataTemplate>
