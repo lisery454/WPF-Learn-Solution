@@ -1,8 +1,9 @@
-﻿<Application x:Class="Fasetto_Word.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Fasetto_Word"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+  StartupUri="MainWindow.xaml"
+  x:Class="Fasetto_Word.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:local="clr-namespace:Fasetto_Word"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Fasetto_Word.DataModels;
 using Fasetto_Word.ViewModels.Base;
 using Fasetto_Word.Windows;
 
@@ -14,6 +15,8 @@ public class WindowViewModel : BaseViewModel
     private int _outerMarginSize = 10;
     private int _windowRadius = 10;
 
+    private WindowDockPosition _dockPosition = WindowDockPosition.Undocked;
+
     #endregion
 
     #region Property
@@ -21,9 +24,13 @@ public class WindowViewModel : BaseViewModel
     public double WindowMinimumWidth { get; set; } = 400;
     public double WindowMinimumHeight { get; set; } = 400;
 
-    public Thickness InnerContentPadding => new(ResizeBorder);
+    public Thickness InnerContentPadding => new(0);
 
-    public int ResizeBorder { get; set; } = 6;
+    public bool Borderless =>
+        _window.WindowState == WindowState.Maximized || _dockPosition != WindowDockPosition.Undocked;
+
+    public int ResizeBorder => Borderless ? 0 : 6;
+
     public Thickness ResizeBorderThickness => new(ResizeBorder + OuterMarginSize);
 
     public int OuterMarginSize
@@ -46,6 +53,8 @@ public class WindowViewModel : BaseViewModel
 
     public GridLength TitleHeightGridLength => new(TitleHeight + ResizeBorder);
 
+    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
     #endregion
 
     #region Command
@@ -59,18 +68,13 @@ public class WindowViewModel : BaseViewModel
 
     #endregion
 
-
     public WindowViewModel(Window window)
     {
         _window = window;
 
         _window.StateChanged += (_, _) =>
         {
-            OnPropertyChanged(nameof(ResizeBorderThickness));
-            OnPropertyChanged(nameof(OuterMarginSize));
-            OnPropertyChanged(nameof(OuterMarginSizeThickness));
-            OnPropertyChanged(nameof(WindowRadius));
-            OnPropertyChanged(nameof(WindowCornerRadius));
+            WindowResized();
         };
 
         MinimizeCommand = new RelayCommand(() => _window.WindowState = WindowState.Minimized);
@@ -88,6 +92,27 @@ public class WindowViewModel : BaseViewModel
             SystemCommands.ShowSystemMenu(_window, point);
         });
 
-        var _ = new WindowResizer(_window);
+        var resizer = new WindowResizer(_window);
+
+        // Listen out for dock changes
+        resizer.WindowDockChanged += (dock) =>
+        {
+            // Store last position
+            _dockPosition = dock;
+
+            // Fire off resize events
+            WindowResized();
+        };
+    }
+    
+    private void WindowResized()
+    {
+        // Fire off events for all properties that are affected by a resize
+        OnPropertyChanged(nameof(Borderless));
+        OnPropertyChanged(nameof(ResizeBorderThickness));
+        OnPropertyChanged(nameof(OuterMarginSize));
+        OnPropertyChanged(nameof(OuterMarginSizeThickness));
+        OnPropertyChanged(nameof(WindowRadius));
+        OnPropertyChanged(nameof(WindowCornerRadius));
     }
 }

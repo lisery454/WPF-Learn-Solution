@@ -1,19 +1,36 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Fasetto_Word">
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:local="clr-namespace:Fasetto_Word"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <Color x:Key="BackgroundLight">#efefef</Color>
-  <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
-  
+  <SolidColorBrush Color="{StaticResource BackgroundLight}" x:Key="BackgroundLightBrush" />
+
   <Color x:Key="BackgroundVeryLight">#fafafa</Color>
-  <SolidColorBrush x:Key="BackgroundVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
-  
+  <SolidColorBrush Color="{StaticResource BackgroundVeryLight}" x:Key="BackgroundVeryLightBrush" />
+
   <Color x:Key="ForegroundMain">#686868</Color>
-  <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
-  
+  <SolidColorBrush Color="{StaticResource ForegroundMain}" x:Key="ForegroundMainBrush" />
+
   <Color x:Key="ForegroundVeryDark">#000000</Color>
-  <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
-  
+  <SolidColorBrush Color="{StaticResource ForegroundVeryDark}" x:Key="ForegroundVeryDarkBrush" />
+
   <Color x:Key="ForegroundLight">#ffffff</Color>
-  <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
+  <SolidColorBrush Color="{StaticResource ForegroundLight}" x:Key="ForegroundLightBrush" />
+
+  <Color x:Key="ForegroundDark">#bdbdbd</Color>
+  <SolidColorBrush Color="{StaticResource ForegroundDark}" x:Key="ForegroundDarkBrush" />
+
+  <Color x:Key="WordBlue">#3099c5</Color>
+  <SolidColorBrush Color="{StaticResource WordBlue}" x:Key="WordBlueBrush" />
+
+  <Color x:Key="WordOrange">#ffa800</Color>
+  <SolidColorBrush Color="{StaticResource WordOrange}" x:Key="WordOrangeBrush" />
+
+  <Color x:Key="WordRed">#ff4747</Color>
+  <SolidColorBrush Color="{StaticResource WordRed}" x:Key="WordRedBrush" />
+
+  <Color x:Key="WordGreen">#00c541</Color>
+  <SolidColorBrush Color="{StaticResource WordGreen}" x:Key="WordGreenBrush" />
+
 </ResourceDictionary>
