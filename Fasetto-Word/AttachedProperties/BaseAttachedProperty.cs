@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Fasetto_Word.AttachedProperties;
+namespace Fasetto_Word;
 
 public abstract class BaseAttachedProperty<TParent, TProperty>
     where TParent : BaseAttachedProperty<TParent, TProperty>, new()

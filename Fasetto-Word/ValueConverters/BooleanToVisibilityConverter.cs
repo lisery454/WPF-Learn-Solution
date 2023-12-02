@@ -1,4 +1,4 @@
-﻿namespace Fasetto_Word.ValueConverters;
+﻿namespace Fasetto_Word;
 
 using System;
 using System.Globalization;

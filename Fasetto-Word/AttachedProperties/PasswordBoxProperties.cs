@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Fasetto_Word.AttachedProperties;
+namespace Fasetto_Word;
 
 public class MonitorPasswordProperty : BaseAttachedProperty<MonitorPasswordProperty, bool>
 {

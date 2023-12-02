@@ -1,8 +1,6 @@
 ﻿using System.Security;
-using Fasetto_Word.ViewModels;
-using Fasetto_Word.ViewModels.Base;
 
-namespace Fasetto_Word.Pages;
+namespace Fasetto_Word;
 
 public partial class LoginPage : BasePage<LoginPageViewModel>, IHavePassword
 {

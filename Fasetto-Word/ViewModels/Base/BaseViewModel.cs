@@ -4,9 +4,8 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Fasetto_Word.Helpers;
 
-namespace Fasetto_Word.ViewModels.Base;
+namespace Fasetto_Word;
 
 public class BaseViewModel : INotifyPropertyChanged
 {

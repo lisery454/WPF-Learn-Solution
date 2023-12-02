@@ -1,4 +1,4 @@
-﻿namespace Fasetto_Word.Animation;
+﻿namespace Fasetto_Word;
 
 public enum PageAnimation
 {

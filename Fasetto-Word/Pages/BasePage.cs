@@ -2,11 +2,8 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using Fasetto_Word.Animation;
-using Fasetto_Word.ViewModels.Base;
 
-namespace Fasetto_Word.Pages;
+namespace Fasetto_Word;
 
 public class BasePage<TVm> : Page where TVm : BaseViewModel, new()
 {

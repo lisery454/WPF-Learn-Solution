@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Fasetto_Word.Helpers;
+namespace Fasetto_Word;
 
 public static class SecureStringHelpers
 {

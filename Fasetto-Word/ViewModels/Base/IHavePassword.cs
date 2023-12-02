@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace Fasetto_Word.ViewModels.Base;
+namespace Fasetto_Word;
 
 public interface IHavePassword
 {

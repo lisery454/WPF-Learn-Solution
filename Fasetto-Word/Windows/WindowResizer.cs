@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace Fasetto_Word.Windows
+namespace Fasetto_Word
 {
     /// <summary>
     /// The dock position of the window
@@ -16,30 +16,37 @@ namespace Fasetto_Word.Windows
         /// Not docked
         /// </summary>
         Undocked = 0,
+
         /// <summary>
         /// Docked to the left of the screen
         /// </summary>
         Left = 1,
+
         /// <summary>
         /// Docked to the right of the screen
         /// </summary>
         Right = 2,
+
         /// <summary>
         /// Docked to the top/bottom of the screen
         /// </summary>
         TopBottom = 3,
+
         /// <summary>
         /// Docked to the top-left of the screen
         /// </summary>
         TopLeft = 4,
+
         /// <summary>
         /// Docked to the top-right of the screen
         /// </summary>
         TopRight = 5,
+
         /// <summary>
         /// Docked to the bottom-left of the screen
         /// </summary>
         BottomLeft = 6,
+
         /// <summary>
         /// Docked to the bottom-right of the screen
         /// </summary>
@@ -230,13 +237,18 @@ namespace Fasetto_Word.Windows
 
             // Get window position/size in device pixels
             var windowTopLeft = new Point(left * mMonitorDpi.Value.DpiScaleX, top * mMonitorDpi.Value.DpiScaleX);
-            var windowBottomRight = new Point(right * mMonitorDpi.Value.DpiScaleX, bottom * mMonitorDpi.Value.DpiScaleX);
+            var windowBottomRight =
+                new Point(right * mMonitorDpi.Value.DpiScaleX, bottom * mMonitorDpi.Value.DpiScaleX);
 
             // Check for edges docked
-            var edgedTop = windowTopLeft.Y <= (mScreenSize.Top + mEdgeTolerance) && windowTopLeft.Y >= (mScreenSize.Top - mEdgeTolerance);
-            var edgedLeft = windowTopLeft.X <= (mScreenSize.Left + mEdgeTolerance) && windowTopLeft.X >= (mScreenSize.Left - mEdgeTolerance);
-            var edgedBottom = windowBottomRight.Y >= (mScreenSize.Bottom - mEdgeTolerance) && windowBottomRight.Y <= (mScreenSize.Bottom + mEdgeTolerance);
-            var edgedRight = windowBottomRight.X >= (mScreenSize.Right - mEdgeTolerance) && windowBottomRight.X <= (mScreenSize.Right + mEdgeTolerance);
+            var edgedTop = windowTopLeft.Y <= (mScreenSize.Top + mEdgeTolerance) &&
+                           windowTopLeft.Y >= (mScreenSize.Top - mEdgeTolerance);
+            var edgedLeft = windowTopLeft.X <= (mScreenSize.Left + mEdgeTolerance) &&
+                            windowTopLeft.X >= (mScreenSize.Left - mEdgeTolerance);
+            var edgedBottom = windowBottomRight.Y >= (mScreenSize.Bottom - mEdgeTolerance) &&
+                              windowBottomRight.Y <= (mScreenSize.Bottom + mEdgeTolerance);
+            var edgedRight = windowBottomRight.X >= (mScreenSize.Right - mEdgeTolerance) &&
+                             windowBottomRight.X <= (mScreenSize.Right + mEdgeTolerance);
 
             // Get docked position
             var dock = WindowDockPosition.Undocked;
@@ -329,14 +341,16 @@ namespace Fasetto_Word.Windows
             GetCursorPos(out var lMousePosition);
 
             // Now get the current screen
-            var lCurrentScreen = mBeingMoved ?
+            var lCurrentScreen = mBeingMoved
+                ?
                 // If being dragged get it from the mouse position
-                MonitorFromPoint(lMousePosition, MonitorOptions.MONITOR_DEFAULTTONULL) : 
+                MonitorFromPoint(lMousePosition, MonitorOptions.MONITOR_DEFAULTTONULL)
+                :
                 // Otherwise get it from the window position (for example being moved via Win + Arrow)
                 // in case the mouse is on another monitor
                 MonitorFromWindow(hwnd, MonitorOptions.MONITOR_DEFAULTTONULL);
 
-            var lPrimaryScreen = MonitorFromPoint(new POINT(0,0), MonitorOptions.MONITOR_DEFAULTTOPRIMARY);
+            var lPrimaryScreen = MonitorFromPoint(new POINT(0, 0), MonitorOptions.MONITOR_DEFAULTTOPRIMARY);
 
             // Try and get the current screen information
             var lCurrentScreenInfo = new MONITORINFO();
@@ -351,7 +365,7 @@ namespace Fasetto_Word.Windows
             // NOTE: Always update it
             // If this has changed from the last one, update the transform
             //if (lCurrentScreen != mLastScreen || mMonitorDpi == null)
-                mMonitorDpi = VisualTreeHelper.GetDpi(mWindow);
+            mMonitorDpi = VisualTreeHelper.GetDpi(mWindow);
 
             // Store last know screen
             mLastScreen = lCurrentScreen;
@@ -406,7 +420,8 @@ namespace Fasetto_Word.Windows
                 lMmi.PointMaxSize.Y = lPrimaryScreenInfo.RCMonitor.Bottom;
 
                 // Set min size
-                var minSize = new Point(mWindow.MinWidth * mMonitorDpi.Value.DpiScaleX, mWindow.MinHeight * mMonitorDpi.Value.DpiScaleX);
+                var minSize = new Point(mWindow.MinWidth * mMonitorDpi.Value.DpiScaleX,
+                    mWindow.MinHeight * mMonitorDpi.Value.DpiScaleX);
                 lMmi.PointMinTrackSize.X = (int)minSize.X;
                 lMmi.PointMinTrackSize.Y = (int)minSize.Y;
 
@@ -423,10 +438,11 @@ namespace Fasetto_Word.Windows
                 (lCurrentScreenInfo.RCWork.Top - lCurrentScreenInfo.RCMonitor.Top) / mMonitorDpi.Value.DpiScaleY,
                 (lCurrentScreenInfo.RCMonitor.Right - lCurrentScreenInfo.RCWork.Right) / mMonitorDpi.Value.DpiScaleX,
                 (lCurrentScreenInfo.RCMonitor.Bottom - lCurrentScreenInfo.RCWork.Bottom) / mMonitorDpi.Value.DpiScaleY
-                );
+            );
 
             // Store new size
-            mScreenSize = new Rect(lCurrentScreenInfo.RCWork.Left, lCurrentScreenInfo.RCWork.Top, currentWidth, currentHeight);
+            mScreenSize = new Rect(lCurrentScreenInfo.RCWork.Left, lCurrentScreenInfo.RCWork.Top, currentWidth,
+                currentHeight);
         }
 
         /// <summary>
@@ -439,7 +455,8 @@ namespace Fasetto_Word.Windows
             GetCursorPos(out var lMousePosition);
 
             // Apply DPI scaling
-            return new Point(lMousePosition.X / mMonitorDpi.Value.DpiScaleX, lMousePosition.Y / mMonitorDpi.Value.DpiScaleY);
+            return new Point(lMousePosition.X / mMonitorDpi.Value.DpiScaleX,
+                lMousePosition.Y / mMonitorDpi.Value.DpiScaleY);
         }
     }
 

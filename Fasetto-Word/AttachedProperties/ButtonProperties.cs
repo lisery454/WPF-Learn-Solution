@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Fasetto_Word.AttachedProperties;
+namespace Fasetto_Word;
 
 public class IsBusyProperty : BaseAttachedProperty<IsBusyProperty, bool>
 {

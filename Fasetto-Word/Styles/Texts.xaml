@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:ap="clr-namespace:Fasetto_Word.AttachedProperties"
-  xmlns:converter="clr-namespace:Fasetto_Word.ValueConverters"
+  xmlns:local="clr-namespace:Fasetto_Word"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Style
     BasedOn="{StaticResource BaseTextBlockStyle}"
@@ -93,7 +92,7 @@
     <Setter Property="BorderBrush" Value="{StaticResource WordBlueBrush}" />
     <Setter Property="BorderThickness" Value="0,0,0,1" />
 
-    <Setter Property="ap:MonitorPasswordProperty.Value" Value="True" />
+    <Setter Property="local:MonitorPasswordProperty.Value" Value="True" />
 
     <Setter Property="Template">
       <Setter.Value>
@@ -122,8 +121,8 @@
               Padding="{TemplateBinding Padding}"
               Text="{TemplateBinding Tag}"
               VerticalAlignment="Center"
-              Visibility="{TemplateBinding ap:HasTextProperty.Value,
-                                           Converter={converter:BooleanToVisibilityConverter}}"
+              Visibility="{TemplateBinding local:HasTextProperty.Value,
+                                           Converter={local:BooleanToVisibilityConverter}}"
               x:Name="placeholder" />
 
           </Grid>

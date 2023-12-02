@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Fasetto_Word.Animation;
+namespace Fasetto_Word;
 
 public static class StoryboardHelpers
 {

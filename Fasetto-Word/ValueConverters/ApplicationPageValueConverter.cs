@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using Fasetto_Word.DataModels;
-using Fasetto_Word.Pages;
 
-namespace Fasetto_Word.ValueConverters;
+namespace Fasetto_Word;
 
 public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
 {

@@ -1,18 +1,16 @@
-﻿<page:BasePage
+﻿<local:BasePage
   Title="LoginPage"
-  d:DataContext="{d:DesignInstance vm:LoginPageViewModel}"
+  d:DataContext="{d:DesignInstance local:LoginPageViewModel}"
   d:DesignHeight="700"
   d:DesignWidth="700"
   mc:Ignorable="d"
-  x:Class="Fasetto_Word.Pages.LoginPage"
+  x:Class="Fasetto_Word.LoginPage"
   x:Name="Page"
-  x:TypeArguments="vm:LoginPageViewModel"
+  x:TypeArguments="local:LoginPageViewModel"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:ap="clr-namespace:Fasetto_Word.AttachedProperties"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:local="clr-namespace:Fasetto_Word"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:page="clr-namespace:Fasetto_Word.Pages"
-  xmlns:vm="clr-namespace:Fasetto_Word.ViewModels"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <Border>
@@ -48,7 +46,7 @@
                 Content="Login In"
                 HorizontalAlignment="Center"
                 Margin="0,30,0,10"
-                ap:IsBusyProperty.Value="{Binding IsLoginRunning}" />
+                local:IsBusyProperty.Value="{Binding IsLoginRunning}" />
             </StackPanel>
           </Border>
           <Button
@@ -62,4 +60,4 @@
   </Border>
 
 
-</page:BasePage>
+</local:BasePage>

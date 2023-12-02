@@ -2,10 +2,8 @@
 using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Fasetto_Word.Helpers;
-using Fasetto_Word.ViewModels.Base;
 
-namespace Fasetto_Word.ViewModels;
+namespace Fasetto_Word;
 
 public class LoginPageViewModel : BaseViewModel
 {
