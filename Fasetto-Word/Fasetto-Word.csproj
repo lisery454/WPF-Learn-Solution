@@ -62,6 +62,8 @@
       <Resource Include="Fonts\Lato-ThinItalic.ttf" />
       <None Remove="Images\Backgrounds\emoji-background.png" />
       <Resource Include="Images\Backgrounds\emoji-background.png" />
+      <None Remove="Fonts\fontawesome-webfont.ttf" />
+      <Resource Include="Fonts\fontawesome-webfont.ttf" />
     </ItemGroup>
 
     <ItemGroup>

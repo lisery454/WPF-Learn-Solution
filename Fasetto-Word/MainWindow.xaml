@@ -121,7 +121,22 @@
       ResizeBorderThickness="{Binding ResizeBorderThickness}" />
   </WindowChrome.WindowChrome>
 
-  <Grid Background="{StaticResource ForegroundLightBrush}">
-    <Frame Content="{Binding CurrentPage, Converter={converter:ApplicationPageValueConverter}}" x:Name="MainFrame" />
-  </Grid>
+
+  <Border Background="{StaticResource WordBlueBrush}">
+    <Grid>
+      <!--  Blue background image  -->
+      <Grid.Background>
+        <ImageBrush
+          ImageSource="/Images/Backgrounds/emoji-background.png"
+          TileMode="Tile"
+          Viewport="0 0 500 500"
+          ViewportUnits="Absolute" />
+      </Grid.Background>
+
+      <Frame
+        Background="Transparent"
+        Content="{Binding CurrentPage, Converter={converter:ApplicationPageValueConverter}}"
+        x:Name="MainFrame" />
+    </Grid>
+  </Border>
 </Window>

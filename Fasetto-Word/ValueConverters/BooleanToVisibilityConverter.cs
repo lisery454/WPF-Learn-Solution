@@ -8,7 +8,10 @@ public class BooleanToVisibilityConverter : BaseValueConverter<BooleanToVisibili
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        return (bool)value ? Visibility.Hidden : Visibility.Visible;
+        if (parameter is "true_visible")
+            return (bool)value ? Visibility.Visible : Visibility.Hidden;
+        else
+            return (bool)value ? Visibility.Hidden : Visibility.Visible;
     }
 
     public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

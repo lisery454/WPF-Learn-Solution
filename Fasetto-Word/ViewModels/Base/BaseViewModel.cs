@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Fasetto_Word.Helpers;
 
 namespace Fasetto_Word.ViewModels.Base;
 
@@ -19,5 +23,22 @@ public class BaseViewModel : INotifyPropertyChanged
         field = value;
         OnPropertyChanged(propertyName);
         return true;
+    }
+
+    protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
+    {
+        if (updatingFlag.GetPropertyValue()) return;
+
+        updatingFlag.SetPropertyValue(true);
+
+
+        try
+        {
+            await action();
+        }
+        finally
+        {
+            updatingFlag.SetPropertyValue(false);
+        }
     }
 }

@@ -1,7 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:ap="clr-namespace:Fasetto_Word.AttachedProperties"
+  xmlns:converter="clr-namespace:Fasetto_Word.ValueConverters"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="Colors.xaml" />
     <ResourceDictionary Source="Fonts.xaml" />
+    <ResourceDictionary Source="Texts.xaml" />
   </ResourceDictionary.MergedDictionaries>
 
   <!--  Hoverless  -->
@@ -86,6 +91,7 @@
     <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
     <Setter Property="Padding" Value="50,10" />
     <Setter Property="Margin" Value="0,10" />
+    <Setter Property="ap:IsBusyProperty.Value" Value="False" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -96,19 +102,52 @@
             CornerRadius="10"
             SnapsToDevicePixels="true"
             x:Name="border">
-            <TextBlock
-              Focusable="False"
-              FontFamily="{TemplateBinding FontFamily}"
-              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-              Margin="{TemplateBinding Padding}"
-              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-              Text="{TemplateBinding Content}"
-              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            <Grid>
+              <TextBlock
+                Focusable="False"
+                FontFamily="{TemplateBinding FontFamily}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                Margin="{TemplateBinding Padding}"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                Text="{TemplateBinding Content}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Visibility="{TemplateBinding ap:IsBusyProperty.Value,
+                                             Converter={converter:BooleanToVisibilityConverter}}" />
+              <TextBlock
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                Style="{StaticResource SpinningText}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Visibility="{TemplateBinding ap:IsBusyProperty.Value,
+                                             Converter={converter:BooleanToVisibilityConverter},
+                                             ConverterParameter=true_visible}" />
+
+            </Grid>
+
           </Border>
           <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-              <Setter Property="Background" TargetName="border" Value="{StaticResource WordBlueBrush}" />
-            </Trigger>
+            <EventTrigger RoutedEvent="MouseEnter">
+              <BeginStoryboard>
+                <Storyboard>
+                  <ColorAnimation
+                    Duration="0:0:0.3"
+                    Storyboard.TargetName="border"
+                    Storyboard.TargetProperty="Background.Color"
+                    To="{StaticResource WordBlue}" />
+                </Storyboard>
+              </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+              <BeginStoryboard>
+                <Storyboard>
+                  <ColorAnimation
+                    Duration="0:0:0.3"
+                    Storyboard.TargetName="border"
+                    Storyboard.TargetProperty="Background.Color"
+                    To="{StaticResource WordOrange}" />
+                </Storyboard>
+              </BeginStoryboard>
+            </EventTrigger>
+
             <Trigger Property="IsEnabled" Value="false">
               <Setter Property="Background" TargetName="border" Value="{StaticResource ForegroundDarkBrush}" />
             </Trigger>
@@ -117,7 +156,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-
 
   <!--  Text Button  -->
   <Style
