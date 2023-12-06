@@ -1,0 +1,99 @@
+﻿<Window
+  Height="600"
+  Title="MainWindow"
+  Width="1800"
+  mc:Ignorable="d"
+  x:Class="LiveChartsLearn.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:local="clr-namespace:LiveChartsLearn"
+  xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Window.DataContext>
+    <local:ViewModel />
+  </Window.DataContext>
+
+  <Grid>
+
+    <Grid Margin="20">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="160" />
+        <RowDefinition Height="320" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <!--  button  -->
+      <StackPanel Orientation="Vertical">
+        <StackPanel Margin="0,10" Orientation="Horizontal">
+          <Button
+            Command="{Binding OpenMainFileCommand}"
+            Content="Open Main File"
+            FontFamily="{StaticResource JosefinSans}"
+            FontSize="20"
+            Height="40"
+            Style="{StaticResource MaterialDesignFlatDarkBgButton}" />
+          <Border>
+            <TextBlock
+              FontFamily="{StaticResource JosefinSans}"
+              FontSize="20"
+              HorizontalAlignment="Center"
+              Margin="30,10"
+              Style="{StaticResource MaterialDesignTextBlock}"
+              Text="{Binding MainFileName}"
+              VerticalAlignment="Center" />
+          </Border>
+        </StackPanel>
+        <StackPanel Margin="0,5" Orientation="Horizontal">
+          <Button
+            Command="{Binding OpenRPeakFileCommand}"
+            Content="Open R Peaks File"
+            FontFamily="{StaticResource JosefinSans}"
+            FontSize="20"
+            Height="40"
+            Style="{StaticResource MaterialDesignFlatDarkBgButton}" />
+          <Border>
+            <TextBlock
+              FontFamily="{StaticResource JosefinSans}"
+              FontSize="20"
+              HorizontalAlignment="Center"
+              Margin="30,5"
+              Style="{StaticResource MaterialDesignTextBlock}"
+              Text="{Binding RPeaksFileName}"
+              VerticalAlignment="Center" />
+          </Border>
+        </StackPanel>
+      </StackPanel>
+      <!--  chart  -->
+      <Border
+        Background="White"
+        BorderBrush="MediumPurple"
+        BorderThickness="5"
+        CornerRadius="10"
+        Grid.Row="1"
+        Height="300"
+        Margin="10">
+        <lvc:CartesianChart
+          EasingFunction="{x:Null}"
+          MaxHeight="300"
+          MinWidth="500"
+          Series="{Binding Series}"
+          TooltipPosition="Hidden"
+          XAxes="{Binding XAxes}"
+          YAxes="{Binding YAxes}" />
+      </Border>
+      <!--  slider  -->
+      <Slider
+        Delay="400"
+        Grid.Row="2"
+        Margin="0,10"
+        Maximum="1"
+        Minimum="0"
+        Orientation="Horizontal"
+        Style="{StaticResource MaterialDesignSlider}"
+        Value="{Binding CurrentProcess}" />
+    </Grid>
+  </Grid>
+
+
+</Window>

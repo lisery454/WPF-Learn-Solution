@@ -11,6 +11,7 @@
 
     <ItemGroup>
       <Folder Include="Images\Logo\" />
+      <Folder Include="Controls\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -87,6 +88,11 @@
         <SubType>Designer</SubType>
       </Page>
       <Page Update="Styles\Windows.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Pages\ChatPage.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>

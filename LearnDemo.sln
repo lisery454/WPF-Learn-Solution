@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo1", "Demo1\Demo1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fasetto-Word", "Fasetto-Word\Fasetto-Word.csproj", "{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChartsLearn", "LiveChartsLearn\LiveChartsLearn.csproj", "{E2F09BCA-8BBA-4F73-B407-BBD227F61823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadData", "ReadData\ReadData.csproj", "{AFE9D775-D7C1-474A-B4F6-E343D2F67216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D92BE4DE-7AB8-4535-9EE5-6C27E846B15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F09BCA-8BBA-4F73-B407-BBD227F61823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F09BCA-8BBA-4F73-B407-BBD227F61823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F09BCA-8BBA-4F73-B407-BBD227F61823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F09BCA-8BBA-4F73-B407-BBD227F61823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE9D775-D7C1-474A-B4F6-E343D2F67216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE9D775-D7C1-474A-B4F6-E343D2F67216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE9D775-D7C1-474A-B4F6-E343D2F67216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE9D775-D7C1-474A-B4F6-E343D2F67216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

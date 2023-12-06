@@ -50,7 +50,7 @@ public class WindowViewModel : BaseViewModel
 
     public GridLength TitleHeightGridLength => new(TitleHeight + ResizeBorder);
 
-    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
     #endregion
 

@@ -122,6 +122,11 @@
 
   <Border Background="{StaticResource WordBlueBrush}">
     <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="300" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
       <!--  Blue background image  -->
       <Grid.Background>
         <ImageBrush
@@ -134,7 +139,50 @@
       <Frame
         Background="Transparent"
         Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"
+        Grid.Column="1"
         x:Name="MainFrame" />
+
+      <Border Background="{StaticResource ForegroundLightBrush}" Grid.Column="0">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+
+          <Grid Background="{StaticResource WordBlueBrush}" Height="60">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+              <Button
+                Content="{StaticResource FontAwesomeChatIcon}"
+                Style="{StaticResource IconButton}"
+                Width="70" />
+              <Button
+                Content="{StaticResource FontAwesomeUserIcon}"
+                Style="{StaticResource IconButton}"
+                Width="70" />
+              <Button
+                Content="{StaticResource FontAwesomePictureIcon}"
+                Style="{StaticResource IconButton}"
+                Width="70" />
+            </StackPanel>
+
+            <Button
+              Content="{StaticResource FontAwesomeCogIcon}"
+              Foreground="{StaticResource WordDarkBlueBrush}"
+              Grid.Column="2"
+              Style="{StaticResource IconButton}"
+              Width="70" />
+
+          </Grid>
+
+
+        </Grid>
+      </Border>
     </Grid>
   </Border>
 </Window>

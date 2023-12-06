@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+      <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc2" />
+      <PackageReference Include="MaterialDesignThemes" Version="5.0.0-ci465" />
+      <PackageReference Include="OxyPlot.Wpf" Version="2.1.2" />
+      <PackageReference Include="ScottPlot.WPF" Version="4.1.69" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ReadData\ReadData.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="JosefinSans-Bold.ttf" />
+      <Resource Include="JosefinSans-Bold.ttf" />
+    </ItemGroup>
+
+</Project>

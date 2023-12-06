@@ -10,6 +10,7 @@ public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageV
         return (ApplicationPage)value switch
         {
             ApplicationPage.Login => new LoginPage(),
+            ApplicationPage.Chat => new ChatPage(),
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
     }
